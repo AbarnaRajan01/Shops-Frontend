@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Email from "./Components/Email";
+import Login from "./Components/Login";
+import Phone from "./Components/Phone";
+import Register from "./Components/Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dash from "./Dashboard/Dash";
+import Shops from "./Dashboard/Shops";
+import Search from "./Dashboard/Search";
+import Category from "./Dashboard/Category";
+import Users from "./Dashboard/Users";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/email" element={<Email />} />
+          <Route path="/phone" element={<Phone />} />
+          <Route path="/dashboard" element={<Dash />} />
+          <Route path="/shops" element={<Shops />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/users" element={<Users />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
