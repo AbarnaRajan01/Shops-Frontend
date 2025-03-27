@@ -21,7 +21,9 @@ const Search: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get<Shop[]>(`${API_BASE_URL}/auth/allShops`);
+      const response = await axios.get<Shop[]>(
+        "https://shops-backend-28ts.onrender.com/shops/allShops"
+      );
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -31,7 +33,9 @@ const Search: React.FC = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:7000/shops/deleteShop/${id}`);
+      await axios.delete(
+        `https://shops-backend-28ts.onrender.com/shops/deleteShop/${id}`
+      );
       console.log("Shop deleted");
       alert("Shop deleted");
       setData((prevData) => prevData.filter((item) => item.id !== id));
@@ -51,7 +55,7 @@ const Search: React.FC = () => {
 
     try {
       const response = await axios.get<Shop[]>(
-        `http://localhost:7000/shops/nearby?radius=${radius}&latitude=${userLocation.latitude}&longitude=${userLocation.longitude}`
+        `https://shops-backend-28ts.onrender.com/shops/nearby?radius=${radius}&latitude=${userLocation.latitude}&longitude=${userLocation.longitude}`
       );
       setData(response.data);
     } catch (error) {

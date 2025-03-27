@@ -7,7 +7,7 @@ const Register: React.FC = () => {
   const [password, setPassword] = React.useState("");
   const [phone, setPhone] = React.useState(" ");
   const [errors, setErrors] = React.useState(" ");
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {

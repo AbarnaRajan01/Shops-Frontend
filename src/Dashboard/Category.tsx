@@ -6,14 +6,16 @@ const Category: React.FC = () => {
   const [categoryCounts, setCategoryCounts] = useState<{
     [key: string]: number;
   }>({});
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/auth/count`);
+      const response = await axios.get(
+        "https://shops-backend-28ts.onrender.com/auth/count"
+      );
       setCategoryCounts(response.data.categoryCounts);
     } catch (error) {
       console.error("Error fetching category counts:", error);

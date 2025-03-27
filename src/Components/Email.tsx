@@ -6,16 +6,19 @@ const Email: React.FC = () => {
   const [otp, setOtp] = useState("");
   const [errors, setErrors] = useState("");
   const [user, setUser] = useState<any>(null);
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors("");
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/auth/login`, {
-        email,
-        otp,
-      });
+      const response = await axios.post(
+        "https://shops-backend-28ts.onrender.com/auth/login",
+        {
+          email,
+          otp,
+        }
+      );
       console.log(response.data);
       alert("Login successful");
       setUser(response.data.user);

@@ -10,13 +10,13 @@ const Login: React.FC = () => {
   const [useEmail, setUseEmail] = useState(true);
   const [message, setMessage] = useState("");
   const [resendMessage, setResendMessage] = useState("");
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       const loginData = useEmail ? { email, otp } : { phone, otp };
       const response = await axios.post(
-        `${API_BASE_URL}/auth/login`,
+        "https://shops-backend-28ts.onrender.com/auth/login",
         loginData
       );
       setMessage(response.data.message);
