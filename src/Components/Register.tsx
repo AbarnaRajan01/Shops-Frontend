@@ -11,12 +11,15 @@ const Register: React.FC = () => {
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${API_BASE_URL}/auth/register`, {
-        name,
-        email,
-        password,
-        phone,
-      });
+      const response = await axios.post(
+        "https://shops-backend-28ts.onrender.com/auth/register",
+        {
+          name,
+          email,
+          password,
+          phone,
+        }
+      );
       console.log(response.data);
       alert("user registarion successful");
       window.location.href = "/login";
