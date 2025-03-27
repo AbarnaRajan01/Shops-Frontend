@@ -6,13 +6,13 @@ const Email: React.FC = () => {
   const [otp, setOtp] = useState("");
   const [errors, setErrors] = useState("");
   const [user, setUser] = useState<any>(null);
-
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors("");
 
     try {
-      const response = await axios.post("http://localhost:7000/auth/login", {
+      const response = await axios.post(`${API_BASE_URL}/login`, {
         email,
         otp,
       });
