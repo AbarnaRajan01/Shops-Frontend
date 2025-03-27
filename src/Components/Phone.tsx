@@ -12,7 +12,7 @@ const Phone: React.FC = () => {
     setErrors("");
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/login`, {
+      const response = await axios.post(`${API_BASE_URL}/auth/login`, {
         phone,
         otp,
       });

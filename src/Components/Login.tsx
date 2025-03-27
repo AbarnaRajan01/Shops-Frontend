@@ -15,7 +15,10 @@ const Login: React.FC = () => {
     event.preventDefault();
     try {
       const loginData = useEmail ? { email, otp } : { phone, otp };
-      const response = await axios.post(`${API_BASE_URL}/login`, loginData);
+      const response = await axios.post(
+        `${API_BASE_URL}/auth/login`,
+        loginData
+      );
       setMessage(response.data.message);
     } catch (error) {
       setMessage("Login failed");

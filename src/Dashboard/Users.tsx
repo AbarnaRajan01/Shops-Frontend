@@ -11,7 +11,7 @@ const Users: React.FC = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/users`);
+      const response = await axios.get(`${API_BASE_URL}/auth/users`);
       setUsers(response.data); // Assuming response.data is an array of users
     } catch (error) {
       console.error("Error fetching users:", error);

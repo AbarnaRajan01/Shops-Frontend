@@ -13,7 +13,7 @@ const Category: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/count`);
+      const response = await axios.get(`${API_BASE_URL}/auth/count`);
       setCategoryCounts(response.data.categoryCounts);
     } catch (error) {
       console.error("Error fetching category counts:", error);

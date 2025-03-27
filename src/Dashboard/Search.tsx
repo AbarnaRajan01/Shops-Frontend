@@ -21,7 +21,7 @@ const Search: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get<Shop[]>(`${API_BASE_URL}/allShops`);
+      const response = await axios.get<Shop[]>(`${API_BASE_URL}/auth/allShops`);
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
